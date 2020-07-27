@@ -5,7 +5,6 @@ import java.util.Date;
 public class Shop{
 	 Customer customer;
 	 Date date;
-	 DiscountRate rd=new DiscountRate();
 	 double serviceExpense;
 	 double productExpense;
 	 
@@ -56,7 +55,7 @@ public class Shop{
 	public double totalExpense;
 	public  double getTotalExpense() {
 		if(customer.member) {
-		totalExpense=serviceExpense+productExpense-((serviceExpense*(rd.getServiceDiscountRate(customer.memberType)+productExpense*(rd.getProductDiscountRate(customer.memberType)))));
+		totalExpense=serviceExpense+productExpense-((serviceExpense*(DiscountRate.getServiceDiscountRate(customer.memberType)+productExpense*(DiscountRate.getProductDiscountRate(customer.memberType)))));
 		
 		}else {
 			totalExpense=serviceExpense+productExpense;
